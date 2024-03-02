@@ -1,22 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BB-Retro Forum</title>
+    <!-- icon add -->
+    <link rel="icon" href="images/logo.png">
+    <!-- title add -->
+    <title>BB-Retro Forum | Assignment6</title>
+    <!-- css add -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Mulish and Inter google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <!-- DaisyUI linking -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <!-- tailwind linking -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- tailwind config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                        'main-color': '#797DFC',
+                        'h-color': '#12132D',
+                        'p-color': '#12132D99',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
+
 <body>
-    <header>
+    <div class="maximum-container px-2 lg:px-0 md:w-[80%] mx-auto ">
+        <!-- header start -->
+        <header class="font-mulish">
+            <!-- navbar start -->
+            <nav class="sticky top-0 z-10 drop-shadow-[0_.7px_0px_rgba(0,0,0,0.1)]">
+                <div class="justify-center items-center">
+                    <div class="navbar bg-base-100">
+                        <div class="navbar-start">
+                            <div class="dropdown">
+                                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 6h16M4 12h8m-8 6h16" />
+                                    </svg>
+                                </div>
+                                <ul tabindex="0"
+                                    class="menu menu-sm dropdown-content mt-3 z-[10000] p-2 shadow bg-base-100 rounded-box ">
+                                    <li><a href="#" class="nav-icon relative hover:bg-transparent p-1 w-11/12"
+                                            id="Home"><img src="images/Frame2.png" alt=""></a></li>
+                                    <li><a href="#" class="nav-icon relative hover:bg-transparent p-1 w-11/12"
+                                            id="Edit"><img src="images/Frame3.png" alt=""></a></li>
+                                    <li><a href="#" class="nav-icon relative hover:bg-transparent p-1 w-11/12"
+                                            id="Add"><img src="images/Frame4.png" alt=""></a></li>
+                                    <li><a href="#" class="nav-icon relative hover:bg-transparent p-1 w-11/12"
+                                            id="Flag"><img src="images/Frame5.png" alt=""></a></li>
+                                </ul>
+                            </div>
+                            <a class="w-3/4 -ml-4 md:ml-3" href="index.html">
+                                <h1 class="text-h-color font-black pl-2 md:pl-0 text-xl md:text-3xl">BB-ReTro</h1>
+                            </a>
+                        </div>
 
-    </header>
-    <main>
+                        <div class="navbar-end  ml-0">
+                            <div class="hidden lg:flex">
+                                <ul class="menu menu-horizontal">
+                                    <li><a href="#" class="nav-icon relative hover:bg-transparent p-1 w-11/12"
+                                            id="Home"><img src="images/Frame2.png" alt=""></a></li>
+                                    <li><a href="#" class="nav-icon relative hover:bg-transparent p-1 w-11/12"
+                                            id="Edit"><img src="images/Frame3.png" alt=""></a></li>
+                                    <li><a href="#" class="nav-icon relative hover:bg-transparent p-1 w-11/12"
+                                            id="Add"><img src="images/Frame4.png" alt=""></a></li>
+                                    <li><a href="#" class="nav-icon relative hover:bg-transparent p-1 w-11/12"
+                                            id="Flag"><img src="images/Frame5.png" alt=""></a></li>
 
-    </main>
-    <footer>
+                                </ul>
+                            </div>
+                            <a class="btn font-bold bg-main-color text-white rounded-3xl px-7 hover:bg-h-color">Sign
+                                In</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- navbar end -->
+            
+        </header>
+
+        <!-- main start -->
+        <main class="font-inter">
+
+        </main>
+    </div>
+
+
+    <footer class="font-mulish">
 
     </footer>
 
     <!-- main.js add -->
     <script src="js/main.js"></script>
 </body>
+
 </html>
