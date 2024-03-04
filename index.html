@@ -105,14 +105,15 @@
                             <p class="text-white mt-4 mb-6">Share your favorite opinion and win <br>and wp forum coffee
                                 mug!
                             </p>
-                            <label class="input input-bordered flex items-center gap-1 pr-[3px] rounded-full">
-                                <input type="text" class="grow" placeholder="Search here anything" />
+                            <!-- search -->
+                            <label class="input input-bordered flex items-center gap-1 pr-[3px] rounded-full w-fit">
+                                <input type="text search-form" class="grow" placeholder="Search here anything" />
                                 <button
-                                    class="bg-main-color hover:bg-h-color text-white p-2 px-4 rounded-full">Search</button>
+                                    class="bg-main-color hover:bg-h-color text-white p-2 px-4 rounded-full" id="input">Search</button>
                             </label>
                         </div>
-                        <div class="p-2 lg:ml-10 lg:w-[40%] text-right justify-end items-end right-0 mt-4">
-                            <img src="images/Frame9.png" alt="" class="w-full">
+                        <div class="p-2 lg:ml-10 lg:w-[40%] text-right justify-end items-end right-0 mt-4 w-fit">
+                            <img src="images/Frame9.png" alt="" class="w-fit">
                         </div>
                     </div>
                 </section>
@@ -398,63 +399,66 @@
                         view the
                         results directly within the app. <br>The integrated testing features allow for a streamlined .
                     </p>
-                    <div class="latest-post-box grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- latest post box -->
+                    <div class="latest-post-box grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="posts-container3">
+                        <!-- <div class="flex">
                         <div
-                            class="card bg-base-100 shadow-xl mt-4 hover:bg-[#797DFC1A] border-[1px] border-solid hover:border-[1px] hover:border-solid hover:border-[#797DFC] rounded-2xl mb-5">
-                            <figure class="px-9 pt-10">
-                                <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                                    alt="Shoes" class="rounded-xl" />
-                            </figure>
-                            <div class="card-body pt-4">
-                                <p class="flex"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                                        viewBox="0 0 24 24" fill="none">
-                                        <g clip-path="url(#clip0_29_1881)">
-                                            <path
-                                                d="M4 7C4 6.46957 4.21071 5.96086 4.58579 5.58579C4.96086 5.21071 5.46957 5 6 5H18C18.5304 5 19.0391 5.21071 19.4142 5.58579C19.7893 5.96086 20 6.46957 20 7V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H6C5.46957 21 4.96086 20.7893 4.58579 20.4142C4.21071 20.0391 4 19.5304 4 19V7Z"
-                                                stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M16 3V7" stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M8 3V7" stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M4 11H20" stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path
-                                                d="M11 16C11 16.2652 11.1054 16.5196 11.2929 16.7071C11.4804 16.8946 11.7348 17 12 17C12.2652 17 12.5196 16.8946 12.7071 16.7071C12.8946 16.5196 13 16.2652 13 16C13 15.7348 12.8946 15.4804 12.7071 15.2929C12.5196 15.1054 12.2652 15 12 15C11.7348 15 11.4804 15.1054 11.2929 15.2929C11.1054 15.4804 11 15.7348 11 16Z"
-                                                stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_29_1881">
-                                                <rect width="24" height="24" fill="white" />
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                    <span class="ml-1 text-xs text-p-color font-medium"> No publish date</span>
-                                </p>
-                                <h2 class="card-title text-sm font-extrabold font-mulish tracking-[.05px]">What will a
-                                    mars
-                                    habitat
-                                    force
-                                    that impact in our daily
-                                    life!!!</h2>
-                                <p class="text-xs opacity-90 text-p-color my-1">Yes, you can run unit tests and view the
-                                    results
-                                    directly within the app.</p>
-                                <div class="card-actions mb-0">
-                                    <div class="rounded-full">
-                                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                                            class="w-10 h-10 rounded-full" alt="">
-                                    </div>
-                                    <div class="mt-1">
-                                        <p class="text-xs font-medium text-h-color opacity-90 mb-[2px]"><span
-                                                class="font-bold">Cameron
-                                                Williamson</span></p>
-                                        <p class="text-xs font-medium text-p-color opacity-90"><span>Unknown</span></p>
-                                    </div>
+                        class="card bg-base-100 shadow-xl mt-4 hover:bg-[#797DFC1A] border-[1px] border-solid hover:border-[1px] hover:border-solid hover:border-[#797DFC] rounded-2xl mb-5">
+                        <figure class="px-9 pt-10">
+                            <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                                alt="Shoes" class="rounded-xl" />
+                        </figure>
+                        <div class="card-body pt-4">
+                            <p class="flex"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <g clip-path="url(#clip0_29_1881)">
+                                        <path
+                                            d="M4 7C4 6.46957 4.21071 5.96086 4.58579 5.58579C4.96086 5.21071 5.46957 5 6 5H18C18.5304 5 19.0391 5.21071 19.4142 5.58579C19.7893 5.96086 20 6.46957 20 7V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H6C5.46957 21 4.96086 20.7893 4.58579 20.4142C4.21071 20.0391 4 19.5304 4 19V7Z"
+                                            stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M16 3V7" stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M8 3V7" stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M4 11H20" stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path
+                                            d="M11 16C11 16.2652 11.1054 16.5196 11.2929 16.7071C11.4804 16.8946 11.7348 17 12 17C12.2652 17 12.5196 16.8946 12.7071 16.7071C12.8946 16.5196 13 16.2652 13 16C13 15.7348 12.8946 15.4804 12.7071 15.2929C12.5196 15.1054 12.2652 15 12 15C11.7348 15 11.4804 15.1054 11.2929 15.2929C11.1054 15.4804 11 15.7348 11 16Z"
+                                            stroke="#12132D" stroke-opacity="0.6" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_29_1881">
+                                            <rect width="24" height="24" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <span class="ml-1 text-xs text-p-color font-medium"> No publish date</span>
+                            </p>
+                            <h2 class="card-title text-sm font-extrabold font-mulish tracking-[.05px]">What will a
+                                mars
+                                habitat
+                                force
+                                that impact in our daily
+                                life!!!</h2>
+                            <p class="text-xs opacity-90 text-p-color my-1">Yes, you can run unit tests and view the
+                                results
+                                directly within the app.</p>
+                            <div class="card-actions mb-0">
+                                <div class="rounded-full">
+                                    <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                                        class="w-10 h-10 rounded-full" alt="">
+                                </div>
+                                <div class="mt-1">
+                                    <p class="text-xs font-medium text-h-color opacity-90 mb-[2px]"><span
+                                            class="font-bold">Cameron
+                                            Williamson</span></p>
+                                    <p class="text-xs font-medium text-p-color opacity-90"><span>Unknown</span></p>
                                 </div>
                             </div>
                         </div>
+                    </div> 
+                        </div> -->
                     </div>
 
 
