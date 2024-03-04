@@ -90,7 +90,7 @@ p{
     }
 }
 .gradient-text {
-    background-image: linear-gradient(90deg, #797DFC 5.63%, rgba(121, 125, 252, 0.30) 100%); /* Set your gradient colors */
+    background-image: linear-gradient(90deg, #797DFC 5.63%, rgba(121, 125, 252, 0.30) 100%);
     -webkit-background-clip: text;
     color: transparent;
     text-fill-color: transparent;
