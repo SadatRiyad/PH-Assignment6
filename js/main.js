@@ -1,7 +1,4 @@
 let count = 1;
-/* id: 101  */
-
-
 
 // for load all phones from api
 const loadAllPosts = async () => {
@@ -12,11 +9,40 @@ const loadAllPosts = async () => {
   const allPosts = data.posts;
   displayAllPosts(allPosts);
 };
+loadAllPosts();
+
+// for load search phones from api
+const loadSearchPosts = async (searchText) => {
+  const response = await fetch(
+    `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`
+  );
+  const data = await response.json();
+  const allPosts = data.posts;
+  const postLength = allPosts.length;
+  if (!postLength) {
+    const postsContainer = document.getElementById("posts-container");
+    postsContainer.innerHTML = `No results found for "${searchText}" category. Please try again.`;
+    alert(`No results found for "${searchText}" category. Please try again.`);
+
+    //hide spinner
+    setTimeout(() => {
+      toogleSpinner(false);
+    }, 10000);
+    return;
+  } else {
+    displayAllPosts(allPosts);
+  }
+};
 
 // display all posts on the page
 const displayAllPosts = (allPosts) => {
   const postsContainer = document.getElementById("posts-container");
+  // clear old content before add new one
+  postsContainer.innerHTML = "";
+
+  //   for each post create a div and add it to the page
   allPosts.forEach((post) => {
+    const title = post.title;
     // console.log(post)
     const postElement = document.createElement("div");
     postElement.classList = `discuss-post-card all-post bg-[#F3F3F5] hover:bg-[#797DFC1A] border-[1px] border-solid hover:border-[1px] hover:border-solid hover:border-[#797DFC] rounded-2xl p-7 mb-5`;
@@ -37,7 +63,7 @@ const displayAllPosts = (allPosts) => {
                 class="mr-7">${post.category}</span> Author : <span>${
       post.author.name
     }</span></p>
-        <h3 class="text-h-color font-bold text-xl mt-1 mb-1">${post.title}</h3>
+        <h3 class="text-h-color font-bold text-xl mt-1 mb-1">${title}</h3>
         <p class="text-xs font-p-color opacity-70 font-medium my-2">${
           post.description
         }</p>
@@ -85,7 +111,7 @@ const displayAllPosts = (allPosts) => {
                 </div>
             </div>
             <div class="discuss-post-card-right-bottom-right flex justify-end" id="all">
-                <button onclick="allPosts('${post.title}', ${
+                <button onclick="allPosts('${title}', ${
       post.view_count
     })" class="all-post"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                         viewBox="0 0 28 28" fill="none">
@@ -108,6 +134,9 @@ const displayAllPosts = (allPosts) => {
     postsContainer.appendChild(postElement);
   });
 
+  //hide spinner
+  toogleSpinner(false);
+
   //  right side section for count
   const all = document.querySelectorAll("#all");
   for (let i = 0; i < all.length; i++) {
@@ -123,7 +152,6 @@ const displayAllPosts = (allPosts) => {
     });
   }
 };
-loadAllPosts();
 
 // right side section for show title view when click
 const allPosts = (title, view) => {
@@ -163,7 +191,7 @@ const getPosts = async () => {
     "https://openapi.programming-hero.com/api/retro-forum/latest-posts"
   );
   JSON.stringify(response);
-  if (!response.ok) throw new Error("Network response was not ok.");
+  if (!response.ok) throw new Error("Error");
   const data = await response.json();
   // console.log(data);
   let htmlString = "";
@@ -205,9 +233,13 @@ class="card bg-base-100 shadow-xl mt-4 hover:bg-[#797DFC1A] border-[1px] border-
                 </clipPath>
             </defs>
         </svg>
-        <span class="ml-1 text-xs text-p-color font-medium"> ${post.author?.posted_date || 'No publish date'}</span>
+        <span class="ml-1 text-xs text-p-color font-medium"> ${
+          post.author?.posted_date || "No publish date"
+        }</span>
     </p>
-    <h2 class="card-title text-sm font-extrabold font-mulish tracking-[.05px]">${post.title}</h2>
+    <h2 class="card-title text-sm font-extrabold font-mulish tracking-[.05px]">${
+      post.title
+    }</h2>
     <p class="text-xs opacity-90 text-p-color my-1">${post.description}</p>
     <div class="card-actions mb-0">
         <div class="rounded-full">
@@ -217,7 +249,9 @@ class="card bg-base-100 shadow-xl mt-4 hover:bg-[#797DFC1A] border-[1px] border-
         <div class="mt-1">
             <p class="text-xs font-medium text-h-color opacity-90 mb-[2px]"><span
                     class="font-bold">${post.author.name}</span></p>
-            <p class="text-xs font-medium text-p-color opacity-90"><span>${post.author?.designation || 'Unknown'}</span></p>
+            <p class="text-xs font-medium text-p-color opacity-90"><span>${
+              post.author?.designation || "Unknown"
+            }</span></p>
         </div>
     </div>
 </div>
@@ -230,31 +264,20 @@ class="card bg-base-100 shadow-xl mt-4 hover:bg-[#797DFC1A] border-[1px] border-
 };
 getPosts();
 
-// // for search bar functionality
-// const form = document.querySelector(".search-form");
-// const inputField = document.querySelector("#input");
-// let isSearching = false;
+// for search bar functionality
+const handleSearch = () => {
+  toogleSpinner(true);
+  const searchField = document.getElementById("search-field");
+  const searchText = searchField.value;
+  loadSearchPosts(searchText);
+};
 
-// function onInput() {
-//   if (inputField.value.length > 0) {
-//     isSearching = true;
-//   } else {
-//     isSearching = false;
-//   }
-// }
-
-// async function getResults() {
-//   if (isSearching) {
-//     const response = await fetch(
-//       `https://openapi.programming-hero.com/api/retro-forum/posts?search=${inputField.value}`
-//     );
-//     const data = await response.json();
-//     const allPosts = data.posts;
-//     displayAllPosts(allPosts);
-//   } else {
-//     loadAllPosts();
-//   }
-// }
-
-// form.addEventListener("submit", getResults);
-// inputField.addEventListener("input", onInput);
+// for spinner
+const toogleSpinner = (isLoding) => {
+  const loadingSpinner = document.getElementById("spinner");
+  if (isLoding) {
+    loadingSpinner.classList.remove("hidden");
+  } else {
+    loadingSpinner.classList.add("hidden");
+  }
+};

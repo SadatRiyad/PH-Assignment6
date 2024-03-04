@@ -105,11 +105,14 @@
                             <p class="text-white mt-4 mb-6">Share your favorite opinion and win <br>and wp forum coffee
                                 mug!
                             </p>
-                            <!-- search -->
+
+                            <!-- search button -->
                             <label class="input input-bordered flex items-center gap-1 pr-[3px] rounded-full w-fit">
-                                <input type="text search-form" class="grow" placeholder="Search here anything" />
-                                <button
-                                    class="bg-main-color hover:bg-h-color text-white p-2 px-4 rounded-full" id="input">Search</button>
+                                <input type="text search-form" id="search-field" class="grow"
+                                    placeholder="Search here anything" />
+                                <button onclick="handleSearch()"
+                                    class="bg-main-color hover:bg-h-color text-white p-2 px-4 rounded-full"
+                                    id="input">Search</button>
                             </label>
                         </div>
                         <div class="p-2 lg:ml-10 lg:w-[40%] text-right justify-end items-end right-0 mt-4 w-fit">
@@ -134,11 +137,23 @@
                     </p>
                 </div>
 
+                <!-- loading spinner -->
+                <div id="spinner" class="text-center my-36 hidden">
+                    <span class="loading loading-spinner loading-lg text-h-color"></span>
+                </div>
+
                 <!--discuss -->
                 <div class="discuss">
                     <div class="demo flex mb-20 flex-col lg:flex-row gap-2" id="discuss-box">
+
+                        <!-- not found -->
+                        <div
+                            class="hidden not-found discuss-post-card absolute w-2/4 flex justify-center lg:w-[40%] ml-6 bg-[#F3F3F5] hover:bg-[#797DFC1A] border-[1px] border-solid hover:border-[1px] hover:border-solid hover:border-[#797DFC] rounded-2xl p-7 mb-5">
+                        </div>
+                        <!-- not found end -->
                         <!-- left side section -->
                         <div id="posts-container" class="left demo1 lg:w-[65%] h-fit p-3 lg:p-0">
+
                             <!-- all post -->
                             <!-- <div
                                 class="discuss-post-card bg-[#F3F3F5] hover:bg-[#797DFC1A] border-[1px] border-solid hover:border-[1px] hover:border-solid hover:border-[#797DFC] rounded-2xl p-7 mb-5">
@@ -291,7 +306,7 @@
                             </div>
                         </div> -->
                         <!-- right side section -->
-                        <div class="demo3 lg:w-[34%] justify-center h-fit p-3 lg:p-0" id="demo3">
+                        <div class="demo3 lg:w-[34%] justify-center h-fit p-3 lg:p-0 mt-4 lg:mt-0" id="demo3">
                             <div class="right1 demo1 w-full">
                                 <div class="discuss-post-card bg-[#F3F3F5] rounded-2xl p-5 mb-5">
                                     <div class="flex flex-col lg:flex-row discuss-post-card-inner">
@@ -400,7 +415,8 @@
                         results directly within the app. <br>The integrated testing features allow for a streamlined .
                     </p>
                     <!-- latest post box -->
-                    <div class="latest-post-box grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="posts-container3">
+                    <div class="latest-post-box grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+                        id="posts-container3">
                         <!-- <div class="flex">
                         <div
                         class="card bg-base-100 shadow-xl mt-4 hover:bg-[#797DFC1A] border-[1px] border-solid hover:border-[1px] hover:border-solid hover:border-[#797DFC] rounded-2xl mb-5">
